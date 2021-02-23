@@ -1,1 +1,26 @@
 Add your steps (pseudo-code) for the dice game here.
+Step 1) Declare char for yes and no for continue
+Step 2) Ask for the gameplay loop 
+step 3) gameplay loop
+step 4) make a better plan with smaller steps
+step 5) profit
+
+int rolls
+char begin
+
+
+do 
+
+the game loop
+while begin not equal c 
+ 
+
+
+ game loop
+
+for amount of rolls asked
+ random 0-6 
+ print that interger
+
+ 
+print the results

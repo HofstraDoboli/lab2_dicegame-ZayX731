@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream> 
+#include <climits>
 using namespace std;
 
 int main()
@@ -49,10 +50,10 @@ int main()
 
     output_file << "\nQ1: (cin only) What happens when you run the code above? Explain why" << endl;
     string answer = ""; // enter your answer in between ""
-    output_file << "Answer Q1: " << answer << endl;
+    output_file << "Answer Q1:What happems is it asks you to input a number because it wants an input to give val " << answer << endl;
 
     cout << "\nCode for Q2 and Q3" << endl;
-    /* //uncomment when you get to Q2 and Q3
+     //uncomment when you get to Q2 and Q3
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -75,19 +76,19 @@ int main()
         
         cout << "\tYou entered " << val << endl << endl;
     }  
-    */
+    
 
     output_file << "\nQ2: (cin + fail+ignore) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "It catcheswhen you input the wrong thing and then prints out that you did not inter an interger"; // enter your answer in between ""
     output_file << "Answer Q2: " << answer << endl;
 
     output_file << "\nQ3: Is the problem of reading an integer value solved? Explain your reasoning." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "Its almost solved but when you enter a double it will still say that you entered 4"; // enter your answer in between ""
     output_file << "Answer Q3: " << answer << endl;
 
     cout << "\nCode for Q4" << endl;
     // uncomment when you get to Q4
-   /*
+   
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -99,9 +100,9 @@ int main()
                             // read more at http://www.cplusplus.com/reference/string/stoi/?kw=stoi
         cout << "\tYou entered " << val << endl << endl;
     }  
-*/
+
     output_file << "\nQ4: (getline only) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "It aborted as soon as you input a string. Also i put in 4.5 and the output was still 4"; // enter your answer in between ""
     output_file << "Answer Q4: " << answer << endl;
 
     // Comment the for loop for Q4 above - leave the answer to Q4
@@ -124,7 +125,7 @@ int main()
         cout << "\tYou entered " << val << endl << endl;
     }
     output_file << "\nQ5: (getline+stoi) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "You get an invalid argument:stoi. The last 3 inputs all come out as 4"; // enter your answer in between ""
     output_file << "Answer Q5: " << answer << endl;
 
     //6. Q6 Add code to enter integer values from the keyboard correctly = accept only 10, not 4.5, abc or a
@@ -134,14 +135,34 @@ int main()
         cout << "\tEnter the value " << array_values.at(i) << endl;
         cout << "\tEnter an int "; 
 
+        string s;
+        getline(cin,s);
+        try{   // read more about exceptions at https://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
+            val = stoi(s);
+        }
+        catch(const std::invalid_argument& ia)
+        {
+            cout<< " Not an interger " << endl;
+        }
         // add your code - it should ask you to type the value you see at line 134. 
+        
         // it should display "Correct 10 " when you enter 10; 
+        if(val==10){
+            cout<<"Correct "<<val<<endl;
+
+        }
+        else{
+
+            cout<<"incorrect "<<val<<endl;
+        }
         // it should display "Incorrect ", followed by the value you entered, for the rest of of the values 
+
         // (4.5, abc or a) 
         // YOUR CODE NEEDS TO DETECT that 4.5 is not an integer
     }
     output_file << "\nQ6: Explain your method to validate integer values entered" << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "I coded it so that if you just use modulus 1 and there in no remainer then it HAS to be an interger of some sort"; // enter your answer in between ""
     output_file << "Answer Q6: " << answer << endl;
     output_file.close();
+
 }
